@@ -1,0 +1,12 @@
+<div class="chat-selector">
+    <h3>{{'chat' | uppercase}}</h3>
+    <a id="{{chat.id}}" *ngFor="let chat of chats" class="chat-group" [routerLink]="['/chat',chat.id]" routerLinkActive="active">
+        <div class="chat-group__icon">
+            <img src="{{chat.img}}" alt="{{chat.title}}">
+        </div>
+        <div class="chat-group__description">
+            <h4>{{chat.title}}</h4>
+            <span>{{chat.description}}</span>
+        </div>
+    </a>
+</div>

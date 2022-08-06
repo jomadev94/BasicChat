@@ -1,0 +1,18 @@
+<div class="chat-content">
+    <div class="chat-content__messages" #messagesBlock> 
+        <div *ngFor="let message of messages" class="message" [ngClass]="{'own':message.author === 'Yo'}">
+            <h5 [ngClass]="{'own': message.author === 'Yo'}">{{message.author}}</h5>
+            <div class="message__text">
+                <p>{{message.text}}</p>
+            </div>
+            <span>{{message.date | date:'d/M/yyyy, h:mm a'}}</span>
+        </div>
+    </div>
+    <form [formGroup]="messageForm" class="chat-content__form" (submit)="sendMessage()">
+        <span class="error">{{errorMessage}}</span>
+        <div class="chat-content__form__input">
+            <input formControlName="message" type="text" placeholder="Ingrese el mensaje...">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
